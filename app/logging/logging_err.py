@@ -2,16 +2,23 @@ import logging
 import logging.config
 import yaml
 import os
+from singleton import singleton
 
 
+@singleton
 class Logger():
-    __instance = None
+    # __instance = None
 
-    @staticmethod
-    def inst():
-        if Logger.__instance == None:
-            Logger.__instance = Logger()
-        return Logger.__instance
+    # @staticmethod
+    # def inst():
+    #     if Logger.__instance == None:
+    #         Logger.__instance = Logger()
+    #     return Logger.__instance
+
+    # def __new__(cls, *args, **kwargs):
+    #     if cls.__instance is None:
+    #         cls.__instance=super().__new__(cls)
+    #     return cls.__instance
 
     def __init__(self):
         with open(os.path.join('logging', 'config.yaml'), 'r') as f:
