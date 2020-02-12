@@ -107,7 +107,7 @@ class Excel():
                         tok = Tokenizer(str(row[1][mark]))
                         if tok.formula.startswith('='):
                             new_cell.value = Translator(row[1][mark], origin=cell.coordinate).translate_formula(
-                                row_delta=10)
+                                row_delta=startrow-2)
                         else:
                             new_cell.value = row[1][mark]
 
